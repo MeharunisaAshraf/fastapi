@@ -19,6 +19,9 @@ jobs:
 
       - name: Build, Tag, and Push Image to ECR
         env:
+          AWS_REGION: us-east-1
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           ECR_REPOSITORY: fastapi-quote-api
           IMAGE_TAG: ${{ github.sha }}
         run: |
